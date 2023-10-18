@@ -1,0 +1,62 @@
+// 1. Function declaration
+function printHello() {
+    console.log('Hello');
+}
+printHello();
+
+function log(message) {
+    console.log(message);
+}
+log('Hello@');
+log(1234);
+
+//2. parameters
+function chanqeName(obj) {
+    obj.name = 'coder';
+}
+const ellie = { name: 'ellie'};
+chanqeName(ellie);
+console.log(ellie);
+
+//3. Default parameters (added im ES6)
+function showMessage(message, from = 'unknown') {
+    console.log('${message} by ${from}');
+}
+showMessage('Hi!');
+
+//4. Rest parameters (added im ES6)
+function printAll(...args) {
+    for (let i = 0; i < args.length; i++) {
+        console.log(args[1]);
+    }
+
+    for (const arg of args) {
+        console.log(arg);
+    }
+
+    args.forEach((arg) => console.log(arg));
+}
+printAll('dream', 'coding', 'ellie');
+
+//5. Local scope
+let globalMessage = 'global'; //global variable
+function printMessage(); {
+    let message = 'hello';
+    console.log(message); //local variable
+    console.log(globalMessage);
+}
+printMessage();
+console.log(message);
+
+
+let globalMessage = 'global'; //global variable
+function printMessage(); {
+    let message = 'hello';
+    console.log(message); //local variable
+    console.log(globalMessage);
+    function printAnother() {
+        console.log(message);
+        let childMessage = 'hallo';
+    }
+}
+printMessage();
